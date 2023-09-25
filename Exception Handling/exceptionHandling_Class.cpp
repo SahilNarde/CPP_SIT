@@ -1,25 +1,38 @@
 #include <iostream>
 using namespace std;
-class test
+class divide
 {
-    public:
-    test(){
-        throw("Exception Occured, No Data was provided in constructor");
+public:
+    divide()
+    {
+        cout << "Default Constructor was called" << endl;
     }
-
-    ~test(){
-        cout<<"Default Destructor called"<<endl;
+    int div(int a, int b)
+    {
+        try
+        {
+            if (b==0)
+            {
+                throw("Invalid Number, Zero can't be denominator");
+            }
+            return a/b;
+            
+        }
+        catch(exception& e)
+        {
+            cerr <<"Exception : "<< e.what() << endl;
+        }
+        
+    }
+    ~divide()
+    {
+        cout << "Default Destructor was called" << endl;
     }
 };
 int main()
 {
-    try
-    {
-        test t1;
-    }
-    catch(char *str)
-    {
-        cout<<str<<endl;
-    }
+    divide d1;
+    int ans = d1.div(10,0);
+    cout<<"Division is : "<<ans<<endl;
     return 0;
 }
