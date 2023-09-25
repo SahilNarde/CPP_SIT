@@ -4,8 +4,9 @@ class test
 {
     public:
     test(){
-        cout<<"Default Constructor called"<<endl;
+        throw("Exception Occured, No Data was provided in constructor");
     }
+
     ~test(){
         cout<<"Default Destructor called"<<endl;
     }
@@ -15,11 +16,10 @@ int main()
     try
     {
         test t1;
-        throw 10;
     }
-    catch(int x)
+    catch(char *str)
     {
-
+        cout<<str<<endl;
     }
     return 0;
 }
