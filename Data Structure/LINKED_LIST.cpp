@@ -63,6 +63,12 @@ public:
     }
     del_node_end()
     {
+        if (head == NULL)
+            return 0;
+        if (head->next == NULL)
+        {
+            del_node_begining();
+        }
     }
     display_all()
     {
